@@ -1,0 +1,62 @@
+body {
+    padding-top: 50px;
+    color: #555;
+}
+
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+  margin-top: 0;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  color: #333;
+  font-size: 400%;
+  text-transform: uppercase;
+}
+
+/*
+ * Override Bootstrap's default container.
+ */
+
+@media (min-width: 1200px) {
+  .container {
+    width: 900px;
+  }
+}
+
+.content-frame {
+  padding: 40px 15px;
+  text-align: center;
+}
+
+.text-normal {
+  font-size: 18px;
+}
+
+.text-title {
+  font-size: 28px;
+}
+
+.text-subscript {
+  font-size: 14px;
+  font-style: italic;
+}
+
+.text-experience {
+  font-size: 20px;
+}
+
+.text-list {
+  width: 600px;
+  margin: 0 auto;
+  font-size: 18px;
+  text-align: left;
+}
+
+.dl-horizontal dt 
+{
+    white-space: normal;
+}
