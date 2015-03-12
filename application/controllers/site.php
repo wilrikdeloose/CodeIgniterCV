@@ -35,20 +35,52 @@ class Site extends CI_Controller {
         $this->load->view("experience", $data);
     }
     
-    public function knowledge()
+    public function knowledge($errorString = "")
     {
         $this->load->model("knowledge");
         $data["content"] = $this->knowledge->getAll("Knowledge");
         $data["title"] = "Knowledge";
+        $data["category"] = "Knowledge";
+        $data["error"] = $errorString;
         $this->load->view("knowledge", $data);
     }
     
-    public function hobbies()
+    public function hobbies($errorString = "")
     {
         $this->load->model("knowledge");
         $data["content"] = $this->knowledge->getAll("Hobby");
         $data["title"] = "Hobbies";
+        $data["category"] = "Hobby";
+        $data["error"] = $errorString;
         $this->load->view("knowledge", $data);
+    }
+    
+    public function addKnowledge()
+    {
+      $error = "";
+      $success = false;
+      
+      $title = $this->input->post('title');
+      $description = $this->input->post('description');
+
+      if ($title != false && $description != false)
+      {
+        $data = array(
+          "Title" => $title,
+          "Description" => $description,
+          "Category" => "Hobby",
+          "PersonID" => 1);
+          
+        $this->load->model("knowledge");
+        $success = $this->knowledge->addHobby($data);
+      }
+
+      if (!$success) {
+        $this->hobbies("Could not insert the data!");
+        return;
+      }
+      
+      redirect(site_url() . '/site/hobbies');
     }
     
     public function language()

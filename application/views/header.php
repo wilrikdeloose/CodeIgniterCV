@@ -33,12 +33,13 @@
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav"><?php
 
-$uri_end = end($this->uri->segment_array());          
+$uri_end = end($this->uri->segment_array());
 
 foreach ($menu as $key => $value)
 {
-  $uri_end == $key ? $class = ' class="active"' : $class = "";
-  echo "<li$class>" . anchor("site/" . $key, $value) . "</li>";
+  $page = end(explode('/', $key));
+  $uri_end == $page ? $class = ' class="active"' : $class = "";
+  echo "<li$class>" . anchor($key, $value) . "</li>";
 }
 
 ?>
